@@ -27,6 +27,14 @@ public class Main : MonoBehaviour {
     public void SpawnEnemy() {
         // Pick a random Enemy prefab to instantiate
         int ndx = Random.Range(0, prefabEnemies.Length);
+
+        // Only allow one Enemy_4 on screen at a time
+        if (FindObjectOfType<Enemy_4>() != null) {
+            while (prefabEnemies[ndx].GetComponent<Enemy_4>() != null) {
+                ndx = Random.Range(0, prefabEnemies.Length);
+            }
+        }
+
         GameObject go = Instantiate<GameObject>(prefabEnemies[ndx]);
 
         // Position the Enemy above the screen with a random x position

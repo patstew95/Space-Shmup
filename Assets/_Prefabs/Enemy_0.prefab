@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 318145439698365323}
   - component: {fileID: 5966760947966144495}
   - component: {fileID: 6715227554581692991}
-  - component: {fileID: -7417203140694471132}
   - component: {fileID: -6226530639462816084}
   - component: {fileID: 6935609944688881851}
+  - component: {fileID: 4479629738798099384}
+  - component: {fileID: -1968233411051533906}
   m_Layer: 9
   m_Name: Enemy_0
   m_TagString: Untagged
@@ -67,22 +68,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &-7417203140694471132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8036593548880220860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407cfff275dc64170a461b2f68120bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  fireRate: 0.3
-  health: 10
-  score: 100
 --- !u!114 &-6226530639462816084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +104,37 @@ MonoBehaviour:
   screenLocs: 0
   camWidth: 0
   camHeight: 0
+--- !u!114 &4479629738798099384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036593548880220860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a09c22dd5c0346e4b3e0d677c37b05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  fireRate: 0.3
+  health: 10
+  score: 10
+--- !u!114 &-1968233411051533906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036593548880220860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de47cafb543a40a4aac80638820bbe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showingColor: 0
+  blinkCompleteTime: 0
+  ignoreOnCollisionEnter: 0
 --- !u!1001 &8446102906416051122
 PrefabInstance:
   m_ObjectHideFlags: 0

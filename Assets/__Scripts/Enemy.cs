@@ -2,15 +2,16 @@ using System.Collections;          // Required for some Arrays manipulation
 using System.Collections.Generic;  // Required for Lists and Dictionaries
 using UnityEngine;                 // Required for Unity
 
+[RequireComponent(typeof(BoundsCheck))]
 public class Enemy : MonoBehaviour {
-
+    
     [Header("Inscribed")]
     public float speed    = 10f;   // The movement speed is 10m/s
     public float fireRate = 0.3f;  // Seconds/shot (Unused)
     public float health   = 10;    // Damage needed to destroy this enemy
     public int   score    = 100;   // Points earned for destroying this
 
-    private BoundsCheck bndCheck;
+    protected BoundsCheck bndCheck;
 
     void Awake()
     {
@@ -52,9 +53,18 @@ public class Enemy : MonoBehaviour {
         GameObject otherGO = coll.gameObject;
         if (otherGO.GetComponent<ProjectileHero>() != null) {
             Destroy(otherGO);     // Destroy the Projectile
+            AwardPoints();        // Give the player this Enemy's points
             Destroy(gameObject);  // Destroy this Enemy GameObject
         } else {
             Debug.Log("Enemy hit by non-ProjectileHero: " + otherGO.name);
+        }
+    }
+
+    // Award this Enemy's points to the ScoreCounter
+    protected void AwardPoints() {
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
+        if (scoreGO != null) {
+            scoreGO.GetComponent<ScoreCounter>().AddPoints(score);
         }
     }
 }
